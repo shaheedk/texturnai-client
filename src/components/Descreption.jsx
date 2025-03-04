@@ -9,14 +9,16 @@ const Description = () => {
       <p className="text-gray-500 mb-8 text-center">
         Turn your imagination into visuals
       </p>
-      <div className="flex flex-col gap-5 md:gap-14 md:flex-row items-center w-full max-w-5xl">
+
+      {/* Responsive Layout */}
+      <div className="flex flex-col md:flex-row gap-5 md:gap-14 items-center">
         <img
           src={assets.sample_img_1}
-          alt="AI Generated Sample"
-          className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded-lg"
+          alt="AI-generated"
+          className="w-full max-w-[20rem] md:max-w-[24rem] rounded-lg"
         />
-        <div className="text-center md:text-left px-4">
-          <h2 className="text-2xl sm:text-3xl font-medium max-w-lg">
+        <div className="text-center md:text-left max-w-lg">
+          <h2 className="font-medium">
             Introducing the AI-Powered Text to Image Generator
           </h2>
           <p className="text-gray-600 mb-4">
