@@ -5,7 +5,7 @@ export const AppContext=createContext()
 
 
 const AppContextProvider = (props) => {
-    const [user,setUser]=useState(0)
+    const [user,setUser]=useState(1)
 
     const value={
         user,setUser
