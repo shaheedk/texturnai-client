@@ -1,0 +1,16 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 50 50"
+  width="50"
+  height="50"
+  fill="none"
+>
+  <!-- Outer Circle -->
+  <circle cx="25" cy="23" r="23" stroke="black"  fill="none"/>
+
+  <!-- LinkedIn Icon -->
+  <g fill="black">
+    <!-- "in" Text -->
+    <path d="M19 18h-4v12h4V18zM17 16c-1 0-2-0.8-2-2s0.9-2 2-2 2 0.8 2 2-0.9 2-2 2zM35 30h-4v-6c0-1.5-0.6-2.5-2-2.5-1.1 0-1.8 0.7-2 1.5-0.1 0.3-0.1 0.6-0.1 1V30h-4V18h4v1.8c0.7-1 1.7-1.8 3.7-1.8 2.7 0 4.4 1.7 4.4 5.3V30z"/>
+  </g>
+</svg>
