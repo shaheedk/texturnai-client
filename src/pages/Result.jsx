@@ -11,7 +11,9 @@ function Result() {
       <div>
         <div className="relative">
           <img src={image} alt="" className="max-w-sm rounded-sm" />
-          <span className="absolute bottom-0 left-0 h-1 bg-blue-500 w-full transition-all duration-[10s]" />
+          <span
+            className={`absolute bottom-0 left-0 h-1 bg-blue-500 ${loading? 'w-full transition-all duration-[10s]':'w-0'}`}
+          />
         </div>
         {loading && <p className="text-lg  mt-2 animate-pulse">Loading...</p>}
       </div>
@@ -34,7 +36,10 @@ function Result() {
 
       {isImageLoaded && (
         <div className="flex gap-2 justify-center flex-wrap text-white text-sm p-0.5 mt-10 rounded-full">
-          <p className="bg-transparent border border-zinc-900 text-black px-8 py-3 rounded-full cursor-pointer" onClick={()=>setIsImageLoaded(false)}>
+          <p
+            className="bg-transparent border border-zinc-900 text-black px-8 py-3 rounded-full cursor-pointer"
+            onClick={() => setIsImageLoaded(false)}
+          >
             Generate Another
           </p>
           <a

@@ -9,7 +9,7 @@ function Header() {
         <img src={assets.star_icon} alt="" />
      </div>
 
-     <h1 className='text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] m-auto mt-7 text-center'>Turn text to <span className='text-blue-600'>image</span>  in seconds</h1>
+     <h1 className='text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] m-auto mt-7 text-center'>Turn text to <span className='text-red-500'>image</span>  in seconds</h1>
      <p className='text-center max-w-xl mx-auto mt-4'>Unleash you creativity with Ai. Turn your imagination into visual art in seconds-just type,and watch the magic happen</p>
      <button className='sm:text-lg text-white bg-black w-auto mt-5 px-12 py-2.5 flex items-center gap-2 rounded-full'>Generate Image 
         <img className='h-6' src={assets.star_group} alt="" />
