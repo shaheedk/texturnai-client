@@ -1,4 +1,5 @@
 import React from 'react'
+import { assets, plans } from '../assets/assets'
 
 function BuyCredit() {
   return (
@@ -9,6 +10,19 @@ function BuyCredit() {
       <h1 className='text-center text-3xl font-medium mb-6 sm:mb-10'>
         Choose the plan
       </h1>
+
+
+      <div>
+        {plans.map((item,index)=>(
+        <div key={index}>
+          <img src={assets.lock_icon} alt="" />
+          <p>{item.id}</p>
+          <p>{item.dese}</p>
+          <p>{item.price} /{item.credits} credits</p>
+
+        </div>  
+        ))}
+      </div>
     </div>
   )
 }
