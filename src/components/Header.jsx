@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { AppContext } from "../context/AppContext";
 function Header() {
   const { user, setShowLogin } = useContext(AppContext);
-
   const navigate = useNavigate();
 
   const onclickHandler = () => {

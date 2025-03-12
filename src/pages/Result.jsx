@@ -1,23 +1,30 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
-
+import { motion } from "framer-motion";
 function Result() {
   const [image, setImage] = useState(assets.sample_img_1);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [input,setInput]=useState('')
+  const [input, setInput] = useState("");
 
-  const onSubmitHandler=async(e)=>{
-
-  }
+  const onSubmitHandler = async (e) => {};
 
   return (
-    <form onSubmit={onSubmitHandler} className="flex flex-col min-h-[90vh] justify-center items-center">
+    <motion.form
+      initial={{ opacity: 0.2, y: 100 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewporrt={{ once: true }}
+      onSubmit={onSubmitHandler}
+      className="flex flex-col min-h-[90vh] justify-center items-center"
+    >
       <div>
         <div className="relative">
           <img src={image} alt="" className="max-w-sm rounded-sm" />
           <span
-            className={`absolute bottom-0 left-0 h-1 bg-blue-500 ${loading? 'w-full transition-all duration-[10s]':'w-0'}`}
+            className={`absolute bottom-0 left-0 h-1 bg-blue-500 ${
+              loading ? "w-full transition-all duration-[10s]" : "w-0"
+            }`}
           />
         </div>
         {loading && <p className="text-lg  mt-2 animate-pulse">Loading...</p>}
@@ -26,7 +33,8 @@ function Result() {
       {!isImageLoaded && (
         <div className="flex w-full max-w-xl bg-neutral-500 text-white text-sm p-0.5 rounded-full mt-4">
           <input
-          onChange={e=>setInput(e.target.value)} value={input}
+            onChange={(e) => setInput(e.target.value)}
+            value={input}
             type="text"
             placeholder="Describe what you want to generate"
             className="flex-1 bg-transparent outline-none ml-8 max-sm:w-20 placeholder-gray-300"
@@ -57,7 +65,7 @@ function Result() {
           </a>
         </div>
       )}
-    </form>
+    </motion.form>
   );
 }
 
