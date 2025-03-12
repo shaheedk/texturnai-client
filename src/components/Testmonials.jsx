@@ -1,7 +1,14 @@
 import { assets, testimonialsData } from "../assets/assets";
+import { motion } from "framer-motion";
 const Testmonials = () => {
   return (
-    <div className="flex flex-col items-center justify-center my-20 py-12 ">
+    <motion.div
+      initial={{ opacity: 0.2, y: 100 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewporrt={{ once: true }}
+      className="flex flex-col items-center justify-center my-20 py-12 "
+    >
       <h1 className="text-3xl sm:text-4xl font-semibold mb-2">
         Customer testimonials
       </h1>
@@ -29,12 +36,14 @@ const Testmonials = () => {
                     <img key={index} src={assets.rating_star} alt="" />
                   ))}
               </div>
-              <p className="text-center text-sm text-gray-600">{testmonial.text}</p>
+              <p className="text-center text-sm text-gray-600">
+                {testmonial.text}
+              </p>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
