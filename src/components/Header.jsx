@@ -97,7 +97,7 @@ function Header() {
         transition={{ delay: 1.2, duration: 0.8 }}
         className="mt-1 text-neutral-600 "
       >
-        Generated images from Textura
+        Generated images from Textify
       </motion.p>
     </motion.div>
   );

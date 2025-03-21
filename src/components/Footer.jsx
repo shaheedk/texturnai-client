@@ -5,10 +5,10 @@ const Footer = () => {
     <div className="flex items-center justify-betweenn gap-4 py-3 mt-20">
       <img src={assets.logo} alt="" width={150} />
       <p className="flex-1  pl-4 text-sm text-gray-500 max-sm:hidden">
-        Copyright @Textura | All right reserved.
+        Copyright @Textify | All right reserved.
       </p>
       <div className="flex gap-2.5">
-        <a href="https://github.com/shaheedk/Textura-client">
+        <a href="https://github.com/shaheedk/Textify-client">
           {" "}
           <img
             src={assets.github_icon}
