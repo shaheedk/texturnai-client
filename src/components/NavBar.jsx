@@ -17,11 +17,11 @@ const NavBar = () => {
           <div className="flex items-center gap-2 sm:gap-3">
             <button onClick={() => navigate("/buy")} className="flex items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.4 sm:py-3 rounded-full hover:scale-105 transition-all duration-700">
               <img className="w-5" src={assets.credit_star} alt="" />
-              <p  className="text-xs sm:text-sm font-medium text-gray-600" >
+              <p  className="text-xs sm:text-sm font-medium text-gray-800" >
                 Credit left :50
               </p>
             </button>
-            <p className="text-gray-600 max-sm:hidden pl-4">hi ,Shaheed</p>
+            <p className="text-gray-200 max-sm:hidden pl-4">hi ,Shaheed</p>
             <div className="relative group">
               <img
                 src={assets.profile_icon}
