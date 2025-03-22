@@ -9,8 +9,8 @@ const Description = () => {
       viewporrt={{ once: true }}
       className="flex flex-col items-center justify-center my-24 p-6 md:px-28"
     >
-      <h1 className="text-3xl sm:text-4xl font-semibold mb-2 text-center">
-        Create AI Images
+      <h1 className="text-3xl sm:text-4xl font-semibold mb-2 text-center ">
+        Create AI <span className="text-red-500">Images</span> 
       </h1>
       <p className="text-gray-200 mb-8 text-center">
         Turn your imagination into visuals
