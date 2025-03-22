@@ -95,7 +95,7 @@ function Header() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="mt-1 text-neutral-600 "
+        className="mt-1 text-gray-200"
       >
         Generated images from Textify
       </motion.p>
