@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import Login from "./components/Login";
 import { AppContext } from "./context/AppContext";
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   const {showLogin}=useContext(AppContext)
