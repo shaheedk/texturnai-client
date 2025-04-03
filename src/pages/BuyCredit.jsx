@@ -26,7 +26,7 @@ function BuyCredit() {
             response,
             { headers: { token } }
           );
-          
+
           if (data.success) {
             loadCreditsData();
             navigate("/");
@@ -35,8 +35,7 @@ function BuyCredit() {
         } catch (error) {
           toast.error(error.message);
         }
-      }
-      
+      },
     };
     const rzp = new window.Razorpay(options);
     rzp.open();
