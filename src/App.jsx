@@ -21,10 +21,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/result" element={<Result />} />
         <Route path="/buy" element={<BuyCredit />} />
-
         {/* Not Found Route - Catch-all */}
         <Route path="*" element={<NotFound />} />
-
       </Routes>
       <Footer/>
       

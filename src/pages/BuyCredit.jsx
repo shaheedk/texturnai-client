@@ -2,8 +2,27 @@ import React, { useContext } from "react";
 import { assets, plans } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 function BuyCredit() {
-  const { user } = useContext(AppContext);
+  const { user,backendUrl,loadCreditData,token,setShowLogin } = useContext(AppContext);
+  const navigate=useNavigate()
+
+  const initPay=async(order)=>{
+
+  }
+  const paymentRazorpay=async(planId)=>{
+    try {
+      if(!user){
+        setShowLogin(true)
+      }
+     const {data}= await axios.post(backendUrl+'/api/user/pay-razor',{planId},{headers:{token}})
+     if(data.success){
+initPay(data.order)
+     }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
   return (
     <motion.div className="min-h-[80vh] text-center mt-14 mb-10"
     initial={{ opacity: 0.2, y: 100 }}

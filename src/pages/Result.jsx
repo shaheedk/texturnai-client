@@ -20,8 +20,6 @@ const {generateImage}=useContext(AppContext)
       if(image){
         setIsImageLoaded(true)
         setImage(image)
-      }else{
-        toast.error('this not working')
       }
     }
     setLoading(false)
