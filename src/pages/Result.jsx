@@ -98,9 +98,10 @@ function Result() {
           >
             Download
           </a>
-          <Library/>
+
         </div>
       )}
+                <Library/>
     </motion.form>
   );
 }
