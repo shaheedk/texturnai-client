@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { assets } from "../assets/assets";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
+import { ImagesIcon, Library } from "lucide-react";
 
 const NavBar = () => {
   const { user,setShowLogin,logout,credit } = useContext(AppContext);
@@ -15,12 +16,15 @@ const NavBar = () => {
       <div>
         {user ? (
           <div className="flex items-center gap-2 sm:gap-3">
+            
             <button onClick={() => navigate("/buy")} className="flex items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.4 sm:py-3 rounded-full hover:scale-105 transition-all duration-700">
               <img className="w-5" src={assets.credit_star} alt="" />
               <p  className="text-xs sm:text-sm font-medium text-gray-800" >
                 Credit left :{credit}
               </p>
             </button>
+            <NavLink to='/library'className='flex ' > <ImagesIcon size={20} className="text-gray-300"/> Library </NavLink>
+
             <p className="text-gray-200 max-sm:hidden pl-4">hi ,{user.name}</p>
             <div className="relative group">
               <img
