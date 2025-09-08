@@ -3,6 +3,7 @@ import { assets } from "../assets/assets";
 import { motion } from "framer-motion";
 import { AppContext } from "../context/AppContext";
 import { toast } from "react-toastify";
+import Library from "./Library";
 
 function Result() {
   const [image, setImage] = useState(assets.sample_img_1);
@@ -19,7 +20,7 @@ function Result() {
 
     if (input) {
       try {
-        const generatedImage = await generateImage(input); // <- returns Cloudinary URL
+        const generatedImage = await generateImage(input); 
         console.log("Generated Image:", generatedImage);
 
         if (generatedImage) {
@@ -97,6 +98,7 @@ function Result() {
           >
             Download
           </a>
+          <Library/>
         </div>
       )}
     </motion.form>

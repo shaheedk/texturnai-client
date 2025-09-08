@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
+import { Download, Heart, ZoomIn } from "lucide-react";
 
 function Library() {
   const { backendUrl, token } = useContext(AppContext);
@@ -12,7 +14,7 @@ function Library() {
   const fetchLibrary = async () => {
     try {
       const { data } = await axios.get(`${backendUrl}/api/image/get-library`, {
-        headers: { token }, 
+        headers: { token },
       });
 
       if (data.success) {
@@ -22,7 +24,7 @@ function Library() {
       }
     } catch (err) {
       console.error(err);
-      toast.error("Failed to load library ❌");
+      toast.error(err.message);
     } finally {
       setLoading(false);
     }
@@ -37,46 +39,66 @@ function Library() {
     }
   }, [token]);
 
+  // 🔹 Force download handler
+  const downloadImage = async (url, filename = "downloaded-image.png") => {
+    try {
+      const response = await fetch(url, { mode: "cors" });
+      const blob = await response.blob();
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    } catch (err) {
+      console.error("Download failed:", err);
+      toast.error("Failed to download image ❌");
+    }
+  };
+
   return (
-    <div className="min-h-screen px-6 py-10 bg-gray-50">
-      <h1 className="text-2xl font-bold mb-6">📂 My Library</h1>
+    <div className="min-h-screen px-4 sm:px-6 py-8">
+      <h1 className="text-2xl font-bold text-white mb-8">Your Images</h1>
 
       {loading ? (
-        <p className="text-gray-500 animate-pulse">Loading your images...</p>
+        <p className="text-gray-400 animate-pulse">Loading your images...</p>
       ) : images.length === 0 ? (
-        <p className="text-gray-500">No images yet. Generate some!</p>
+        <p className="text-gray-400">No images yet. Generate some!</p>
       ) : (
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="columns-2 md:columns-3 lg:columns-3 gap-4 space-y-4">
           {images.map((item, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="rounded-xl shadow-md border border-gray-200 overflow-hidden flex flex-col bg-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="relative break-inside-avoid overflow-hidden rounded-md group"
             >
+              {/* Image */}
               <img
                 src={item.url}
                 alt={item.prompt || "Generated Image"}
-                className="w-full h-48 object-cover"
+                className="w-full rounded-md object-cover"
               />
-              <div className="p-3 flex flex-col flex-1">
-                <p className="text-sm text-gray-700 flex-1">
-                  {item.prompt || "No prompt available"}
-                </p>
-                <div className="mt-3 flex justify-between items-center text-xs text-gray-500">
-                  <span>
-                    {item.createdAt
-                      ? new Date(item.createdAt).toLocaleDateString()
-                      : ""}
-                  </span>
-                  <a
-                    href={item.url}
-                    download
-                    className="text-blue-600 font-medium hover:underline"
+
+              {/* Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-3 py-2 flex justify-between items-end">
+                <span className="text-white text-xs font-medium truncate max-w-[70%]">
+                rompt:  {item.prompt?.slice(0, 18) || "Untitled"}
+                </span>
+                <div className="flex items-center gap-3 text-gray-200 text-xs">
+                  <button
+                    onClick={() =>
+                      downloadImage(item.url, `image-${idx + 1}.png`)
+                    }
+                    className="hover:text-white transition"
                   >
-                    Download
-                  </a>
+                    <Download size={16} />
+                  </button>
+                  
+                  
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       )}
