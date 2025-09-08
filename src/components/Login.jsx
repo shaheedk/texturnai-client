@@ -19,8 +19,8 @@ const onSubmitHandler=async (e) => {
   e.preventDefault();
   try {
     if(state==="Login"){
- const {data}= await axios.post(backendUrl+'/api/user/login',{ email,password  })
- if(data.success){
+         const {data}= await axios.post(backendUrl+'/api/user/login',{ email,password  })
+      if(data.success){
   setToken(data.token)
   setUser(data.user)
   localStorage.setItem('token',data.token)

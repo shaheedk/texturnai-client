@@ -59,7 +59,7 @@ const AppContextProvider = (props) => {
     if (token) {
       loadCreditData();
     }
-  }, [token]); // Ensured useEffect correctly updates when "token" changes
+  }, [token]);
 
   const value = {
     user,

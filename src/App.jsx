@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./components/Login";
 import { AppContext } from "./context/AppContext";
 import { ToastContainer, toast } from 'react-toastify';
+import Library from "./pages/Library";
 
 const App = () => {
   const {showLogin}=useContext(AppContext)
@@ -24,10 +25,9 @@ const App = () => {
         {/* Not Found Route - Catch-all */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Library/>
       <Footer/>
-      
     </div>
   );
 };
-
 export default App;
